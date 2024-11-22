@@ -1,5 +1,4 @@
-
-export default async function Home() {
+export default function Home() {
   return (
     <div className="mx-auto mt-4 max-w-md">
       <div className="text-center">
