@@ -1,30 +1,18 @@
 "use client";
-import {
-  Link,
-  Navbar,
-  NavbarBrand,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenu,
-  NavbarMenuItem,
-  NavbarMenuToggle,
-} from "@nextui-org/react";
+
+import Link from "next/link";
 import { IconPackage } from "@tabler/icons-react";
+import { Menu } from "lucide-react";
 import { useSession } from "next-auth/react";
-import React from "react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import AuthButton from "./auth-button";
 import { ThemeSwitcher } from "./theme-switcher";
 
 export default function AppNavbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { status } = useSession();
 
-  const menuItems = [
-    {
-      label: "Home",
-      href: "/",
-    },
-  ];
+  const menuItems = [];
 
   if (status === "authenticated") {
     menuItems.push(
@@ -40,48 +28,56 @@ export default function AppNavbar() {
   }
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent>
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
-        />
-        <NavbarBrand>
+    <nav className="border-b bg-background">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
+        <div className="mr-4 flex items-center gap-2">
           <IconPackage />
-          <p className="font-bold text-inherit">Next.js Starter</p>
-        </NavbarBrand>
-      </NavbarContent>
+          <span className="font-bold">Next.js Starter</span>
+        </div>
 
-      <NavbarContent className="hidden gap-4 sm:flex" justify="center">
-        {menuItems.map((item, index) => (
-          <NavbarItem key={`${item}-${index}`}>
-            <Link className="w-full" href={item.href} size="lg">
+        {/* Desktop Navigation */}
+        <nav className="hidden flex-1 flex-row-reverse items-center gap-6 p-4 sm:flex">
+          {menuItems.map((item, index) => (
+            <Link
+              key={`${item}-${index}`}
+              href={item.href}
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               {item.label}
             </Link>
-          </NavbarItem>
-        ))}
-        <NavbarItem>
+          ))}
+        </nav>
+
+        <div className="ml-auto flex items-center gap-2">
           <ThemeSwitcher />
-        </NavbarItem>
-        <NavbarItem>
           <AuthButton />
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarMenu>
-        <NavbarMenuItem>
-          <ThemeSwitcher showLabel />
-        </NavbarMenuItem>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link className="w-full" href={item.href} size="lg">
-              {item.label}
-            </Link>
-          </NavbarMenuItem>
-        ))}
-        <NavbarMenuItem>
-          <AuthButton />
-        </NavbarMenuItem>
-      </NavbarMenu>
-    </Navbar>
+        </div>
+
+        {/* Mobile Navigation */}
+        <Sheet>
+          <SheetTrigger asChild className="sm:hidden">
+            <Button variant="ghost" size="icon">
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left">
+            <nav className="flex flex-col gap-4">
+              {menuItems.map((item, index) => (
+                <Link
+                  key={`${item}-${index}`}
+                  href={item.href}
+                  className="text-sm font-medium transition-colors hover:text-primary"
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <ThemeSwitcher showLabel />
+              <AuthButton />
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
+    </nav>
   );
 }
