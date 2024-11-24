@@ -1,6 +1,5 @@
 import { redirect } from "next/navigation";
 import { LogOut, Mail, MapPin } from "lucide-react";
-import { getServerSession } from "next-auth";
 import { UserAvatar } from "@/components/avatar";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,10 +8,10 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import options from "@/config/auth";
+import { auth } from "@/config/auth";
 
 export default async function Profile() {
-  const session = await getServerSession(options);
+  const session = await auth();
 
   if (!session?.user) {
     redirect("/api/auth/signin");
