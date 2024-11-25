@@ -9,7 +9,7 @@ import { InsertGuestbookEntrySchema } from "@/db/schema/guestbook-entries";
 import { createGuestbookEntry } from "./actions";
 
 export default function GuestbookClient() {
-  const [lastResult, action] = useActionState(createGuestbookEntry);
+  const [lastResult, action] = useActionState(createGuestbookEntry, undefined);
   const [form, fields] = useForm({
     lastResult,
     onValidate({ formData }) {
