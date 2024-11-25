@@ -9,7 +9,7 @@ import { InsertGuestbookEntrySchema } from "@/db/schema/guestbook-entries";
 import { createGuestbookEntry } from "./actions";
 
 export default function GuestbookClient() {
-  const [lastResult, action] = useActionState(createGuestbookEntry, undefined);
+  const [lastResult, action] = useActionState(createGuestbookEntry);
   const [form, fields] = useForm({
     lastResult,
     onValidate({ formData }) {
@@ -25,7 +25,7 @@ export default function GuestbookClient() {
           key={fields.message.key}
           name={fields.message.name}
           placeholder="Enter your message"
-          className={`w-full ${!fields.message.valid ? "border-destructive" : ""}`}
+          className={`w-full ${fields.message.valid ? "" : "border-destructive"}`}
         />
         {!fields.message.valid && <p className="text-sm text-destructive">{fields.message.errors}</p>}
       </div>

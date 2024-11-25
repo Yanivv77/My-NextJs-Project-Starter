@@ -5,11 +5,7 @@ export interface LoadingSpinnerProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
 }
 
-export const LoadingSpinner = ({
-  size = 24,
-  className,
-  ...props
-}: LoadingSpinnerProps) => {
+export const LoadingSpinner = ({ size = 24, className, ...props }: LoadingSpinnerProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

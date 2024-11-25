@@ -1,12 +1,29 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier", "plugin:unicorn/recommended", "plugin:import/recommended", "plugin:playwright/recommended", "plugin:prettier/recommended"],
   "plugins": ["check-file", "n"],
   "rules": {
+    "import/named": "off",
+    "unicorn/no-array-callback-reference": "off",
+    "unicorn/no-array-for-each": "off",
+    "unicorn/no-array-reduce": "off",
     "prefer-arrow-callback": ["error"],
     "prefer-template": ["error"],
     "semi": ["error"],
     "quotes": ["error", "double"],
-    "n/no-process-env": ["error"],
+    "unicorn/prevent-abbreviations": [
+      "error",
+      {
+        "allowList": {
+          "e2e": true,
+          "env": true
+        },
+        "replacements": {
+          "props": false,
+          "ref": false,
+          "params": false
+        }
+      }
+    ],
     "check-file/filename-naming-convention": [
       "error",
       {

@@ -14,8 +14,8 @@ const connectionOptions = {
 
 export const client = postgres(env.DATABASE_URL, connectionOptions);
 
-const db = drizzle(client, {
+const database = drizzle(client, {
   schema,
 });
 
-export default db;
+export default database;

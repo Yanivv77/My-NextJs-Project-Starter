@@ -12,18 +12,14 @@ export function ThemeSwitcher({ showLabel }: { showLabel?: boolean }) {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) return;
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       className="inline-flex items-center gap-2 rounded-full bg-secondary p-2 hover:bg-secondary/80"
     >
-      {theme === "dark" ? (
-        <IconMoon className="h-5 w-5" />
-      ) : (
-        <IconSun className="h-5 w-5" />
-      )}
+      {theme === "dark" ? <IconMoon className="h-5 w-5" /> : <IconSun className="h-5 w-5" />}
       {showLabel && <span>Theme</span>}
     </button>
   );

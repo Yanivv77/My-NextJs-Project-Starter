@@ -8,7 +8,7 @@ import db from "@/db";
 import guestbookEntries, { InsertGuestbookEntrySchema } from "@/db/schema/guestbook-entries";
 import requireAuth from "@/utils/require-auth";
 
-export async function createGuestbookEntry(prevState: unknown, formData: FormData) {
+export async function createGuestbookEntry(previousState: unknown, formData: FormData) {
   await requireAuth();
   const submission = parseWithZod(formData, {
     schema: InsertGuestbookEntrySchema,

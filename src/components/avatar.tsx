@@ -11,9 +11,7 @@ export function UserAvatar({ src, alt, className }: AvatarProps) {
   return (
     <Avatar className={className}>
       <AvatarImage src={src ?? undefined} alt={alt} />
-      <AvatarFallback>
-        {alt ? alt[0].toUpperCase() : <User className="h-6 w-6" />}
-      </AvatarFallback>
+      <AvatarFallback>{alt ? alt[0].toUpperCase() : <User className="h-6 w-6" />}</AvatarFallback>
     </Avatar>
   );
 }
