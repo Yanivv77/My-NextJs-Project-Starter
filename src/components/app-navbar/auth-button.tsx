@@ -1,3 +1,5 @@
+"use client";
+
 import { IconBrandGoogle } from "@tabler/icons-react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar } from "../ui/avatar";
@@ -19,6 +21,9 @@ export default function AuthButton({ minimal = true }: { minimal?: boolean }) {
     return <LoadingSpinner aria-label="Loading authentication status..." />;
   }
 
+  console.log(status);
+  console.log(data);
+
   if (status === "authenticated") {
     const signOutClick = () =>
       signOut({
@@ -26,7 +31,7 @@ export default function AuthButton({ minimal = true }: { minimal?: boolean }) {
       });
     if (minimal) {
       return (
-        <Button onClick={signOutClick} variant="ghost">
+        <Button onClick={signOutClick} color="danger" variant="ghost">
           <IconBrandGoogle />
           Sign Out
         </Button>
