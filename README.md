@@ -70,10 +70,10 @@ This boilerplate is designed to help developers quickly start projects without r
 git clone https://your-repo-url.git
 
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm run dev
+pnpm run dev
 ```
 
 ## 🔒 Configuration
