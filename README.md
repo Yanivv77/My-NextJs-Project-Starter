@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js 15 Boilerplate Project
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This boilerplate provides a robust, production-ready starting point for web development projects, leveraging the latest technologies to streamline development and ensure code quality.
 
+## Technology Stack
+
+### Core Frameworks
+- **Next.js 15**: Cutting-edge framework incorporating React 19
+- **React 19**: Latest version of the popular JavaScript library for building user interfaces
+
+### Code Quality & Development Tools
+- **Prettier**: Ensures consistent code formatting
+- **ESLint**: Detects and prevents potential code errors
+- **Husky**: Implements Git hooks to run linting before commits
+
+### Testing
+- **Vitest**: Lightweight and fast testing framework
+- **React Testing Library**: Comprehensive component testing
+- **Playwright**: End-to-End (E2E) testing solution
+
+### Styling & Design
+- **Tailwind CSS**: Utility-first CSS framework
+- **shadcn/UI**: Beautifully designed, accessible component library
+- **Dark Mode**: Built-in theme switching support
+
+### Authentication & Security
+- **NextAuth**: Flexible authentication system
+- **Google OAuth**: Integrated Google sign-in
+- **Zod**: Type-safe schema validation
+- **Conform**: Form validation with type safety
+
+### Database & ORM
+- **Drizzle ORM**: Lightweight and performant ORM
+- **PostgreSQL**: Robust relational database
+- **User Session Management**: Persistent user sessions in database
+
+### Deployment & Containerization
+- **Docker**: Containerization for consistent development and deployment environments
+
+## 💡 Project Philosophy
+
+This boilerplate is designed to help developers quickly start projects without rebuilding the entire development environment. By providing a comprehensive setup with best-in-class tools, developers can focus on implementing their core product ideas immediately.
+
+## 🛠 Recommended Usage
+
+1. Fork this repository
+2. Customize according to your project needs
+3. Create multiple variations with different technology combinations
+4. Use as a template for future projects
+
+## 🌟 Benefits
+
+- Rapid project initialization
+- Consistent code quality
+- Comprehensive testing infrastructure
+- Scalable and maintainable architecture
+- Modern technology stack
+
+## 📦 Getting Started
+
+### Prerequisites
+- Node.js (version compatible with Next.js 15)
+- Docker (optional, but recommended)
+
+### Installation
 ```bash
+# Clone the repository
+git clone https://your-repo-url.git
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔒 Configuration
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Refer to `.env.example` for environment variable setup and customize according to your project requirements.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 Contributing
 
-## Learn More
+Please read `CONTRIBUTING.md` for details on our code of conduct and the process for submitting pull requests.
 
-To learn more about Next.js, take a look at the following resources:
+## 📄 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the `LICENSE.md` file for details.
