@@ -62,7 +62,7 @@ This boilerplate is designed to help developers quickly start projects without r
 
 ### Prerequisites
 - Node.js (version compatible with Next.js 15)
-- Docker (optional, but recommended)
+- Docker (optional)
 
 ### Installation
 ```bash
